@@ -4,7 +4,7 @@ import themesReducer from '../features/Quiz/redux/quizReducer';
 
 const rootReducer = combineReducers({
   authState: authReducer,
-  initialThemeState: themesReducer
+  initialThemeState: themesReducer,
 });
 
 export default rootReducer;

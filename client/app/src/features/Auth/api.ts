@@ -1,4 +1,4 @@
-import type { User, UserWithoutId, UserWithoutIdAndName } from './type';
+import type { User, UserWithoutId, UserWithoutIdAndName, UserWithoutPassword } from './type';
 
 export const registrationFetch = async (
   obj: UserWithoutId,
@@ -25,3 +25,11 @@ export const loginFetch = async (obj: UserWithoutIdAndName): Promise<{ user: Use
   const data = await res.json();
   return data;
 };
+
+
+export const userfetch = async ():Promise<UserWithoutPassword> => {
+  const res = await fetch('/api/auth')
+  const data = await res.json()
+  return data
+  
+}
