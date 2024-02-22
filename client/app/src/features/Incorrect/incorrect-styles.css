@@ -1,0 +1,41 @@
+.incorrect-page-div {
+    position:fixed;
+    padding:0;
+    margin:0;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    background:rgb(255, 255, 255);
+}
+
+.incorrect-page-text {
+    line-height: 50rem;
+    margin: 0;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    font-size: 10rem;
+    transition: 3s;
+    cursor: none;
+}
+
+.incorrect-page-text:hover {
+    scale: 50;
+}
+
+.incorrect-page-meme {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    width: .1%;
+    height: .1%;
+    transition: 4s;
+}
+
+.incorrect-page-div:hover>.incorrect-page-meme{
+    width: 30rem;
+    height: 30rem;
+} 
