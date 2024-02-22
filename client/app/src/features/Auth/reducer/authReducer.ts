@@ -5,7 +5,7 @@ const init = { user: null, message: '' };
 const authReducer = (state: StateAuth = init, action: Action): StateAuth => {
   switch (action.type) {
     case 'auth/registration':
-      if (action.payload.message === 'ok') {
+      if (action.payload.message === 'confirm') {
         return { ...state, user: action.payload.user };
       }
       return { ...state, message: action.payload.message };

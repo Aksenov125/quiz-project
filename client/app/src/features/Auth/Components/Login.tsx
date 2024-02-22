@@ -12,7 +12,11 @@ function Login(): JSX.Element {
     e.preventDefault();
     api
       .loginFetch({ email, password })
-      .then((data) => dispatch({ type: 'auth/login', payload: data }))
+      .then((data) => {
+        if (data.message === 'confirm') {
+          dispatch({ type: 'auth/login', payload: data });
+        }
+      })
       .catch(console.log);
   };
   return (
