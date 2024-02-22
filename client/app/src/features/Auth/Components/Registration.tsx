@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import * as api from '../api';
 import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../../../store/store';
 
 function Registration(): JSX.Element {
   const [name, setName] = useState('');
@@ -21,6 +22,10 @@ function Registration(): JSX.Element {
     } else {
       dispatch({ type: 'auth/registration', payload: { message: 'Ваши пароли не совпадают' } });
     }
+    setName('');
+    setEmail('');
+    setPassword('');
+    setPassword2('');
   };
 
   return (
