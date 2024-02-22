@@ -4,6 +4,8 @@ import { checkAnswerFetch } from '../api'
 
 function QuestionCard({question}:{question:Question}): JSX.Element {
   const [answerValue, setAnswerValue] = useState('')
+  const [statebtn, setStatebtn] = useState(false)
+
 
   const checkAnswer = ():void => {
     checkAnswerFetch({answer:answerValue, id: question.id})
@@ -12,7 +14,9 @@ function QuestionCard({question}:{question:Question}): JSX.Element {
   }
   
   return (
-    <div className='question-card'>
+    <>
+    <button onClick={()=>(setStatebtn((prev)=>!prev))}>{question.price}</button>
+    { statebtn &&<div className='question-card'>
       <img src={question.img} alt="question-img" />
       <p>{question.name}</p>
       <form onSubmit={checkAnswer}>
@@ -20,7 +24,8 @@ function QuestionCard({question}:{question:Question}): JSX.Element {
       <button type='submit'>Отправить ответ</button>
       </form>
 
-    </div>
+    </div>}
+    </>
   )
 }
 
