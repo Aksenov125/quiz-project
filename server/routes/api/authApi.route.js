@@ -1,11 +1,12 @@
+/* eslint-disable max-len */
 const router = require('express').Router();
 const bcrypt = require('bcrypt');
 const { sendCookies } = require('../../middleware/sendCookies');
-const { User } = require('../../db/models')
+const { User } = require('../../db/models');
 
-router.get('/', async (req, res)=> {
-  res.status(200).json(res.locals.user)
-})
+router.get('/', async (req, res) => {
+  res.status(200).json(res.locals.user);
+});
 
 router.post('/registration', async (req, res) => {
   try {
@@ -40,7 +41,7 @@ router.post('/registration', async (req, res) => {
       name, email, password: hash,
     });
     sendCookies(newUser)(req, res, () => {
-      res.status(201).json({ user:res.locals.user, message: 'confirm' });
+      res.status(201).json({ user: res.locals.user, message: 'confirm' });
     });
   } catch ({ message }) {
     res.status(500).json({ message });
@@ -67,7 +68,12 @@ router.post('/login', async (req, res) => {
       return;
     }
     sendCookies(databaseUser)(req, res, () => {
-      res.status(200).json({ user: { id: databaseUser.id, name: databaseUser.name, email: databaseUser.email}, message: 'confirm' });
+      res.status(200).json({
+        user: {
+          id: databaseUser.id, name: databaseUser.name, email: databaseUser.email, score: databaseUser.score,
+        },
+        message: 'confirm',
+      });
     });
   } catch ({ message }) {
     res.status(500).json({ message });
