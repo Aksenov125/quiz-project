@@ -17,8 +17,9 @@ router.post('/', async (req, res) => {
     }
 
     if (question.answer === answer) {
-      // calculate score
-      await User.update({ where: { } }, { price: question.price });
+      const user = await User.findOne({ where: { id: res.locals.user.id } });
+      const newScore = user.score + question.price;
+      await User.update({ where: { } }, { score: newScore });
       res.status(200).json({ message: 'confirm', result: true });
     } else {
       res.status(200).json({ message: 'confirm', result: false });
