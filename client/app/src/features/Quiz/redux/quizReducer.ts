@@ -21,4 +21,4 @@ const themesReducer=(state:StateThemes=init,action:ActionTheme):StateThemes=>{
     }
 
 }
-export default booksReducer
+export default themesReducer
