@@ -2,7 +2,6 @@ export type Theme = {
     id:number
     name: string
     Questions:Question[]
-
 }
 
 export type Question = {

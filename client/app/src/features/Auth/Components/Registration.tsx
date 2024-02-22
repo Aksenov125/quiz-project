@@ -19,8 +19,6 @@ function Registration(): JSX.Element {
         .registrationFetch({ name, email, password })
         .then((data) => dispatch({ type: 'auth/registration', payload: data }))
         .catch(console.log);
-    } else {
-      dispatch({ type: 'auth/registration', payload: { message: 'Ваши пароли не совпадают' } });
     }
     setName('');
     setEmail('');
@@ -59,6 +57,7 @@ function Registration(): JSX.Element {
           required
           onChange={(e) => setPassword2(e.target.value)}
         />
+        <p className="incorrectMessage">{message}</p>
         <button type="submit">registration</button>
       </form>
     </div>
