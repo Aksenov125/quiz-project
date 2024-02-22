@@ -1,12 +1,18 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import type { RootState} from '../../store/store';
 
 function Headers(): JSX.Element {
+
+  const user = useSelector((store: RootState) => store.authState.user)
+
+
   return (
     <ul className="menu-main">
-      <li>
-        <NavLink to="">Hello</NavLink>
-      </li>
+     { user &&  <li>
+        <NavLink to="">{user.name}</NavLink>
+      </li>}
       <li>
         <NavLink to="">Hello</NavLink>
       </li>

@@ -7,3 +7,4 @@ export type User = {
 
 export type UserWithoutId = Omit<User, 'id'>;
 export type UserWithoutIdAndName = Omit<UserWithoutId, 'name'>;
+export type UserWithoutPassword = Omit<User, 'password'>

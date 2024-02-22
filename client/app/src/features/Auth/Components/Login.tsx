@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import * as api from '../api';
 
 function Login(): JSX.Element {
@@ -8,6 +9,8 @@ function Login(): JSX.Element {
 
   const dispatch = useDispatch();
 
+  const navigator = useNavigate()
+
   const login = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
     api
@@ -15,9 +18,11 @@ function Login(): JSX.Element {
       .then((data) => {
         if (data.message === 'confirm') {
           dispatch({ type: 'auth/login', payload: data });
+          navigator('/')
         }
       })
       .catch(console.log);
+      
   };
   return (
     <div>

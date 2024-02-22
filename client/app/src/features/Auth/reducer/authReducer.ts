@@ -10,6 +10,20 @@ const authReducer = (state: StateAuth = init, action: Action): StateAuth => {
       }
       return { ...state, message: action.payload.message };
 
+      case "auth/login" :
+    
+      if (action.payload.message === 'confirm') {
+        return { ...state, user: action.payload.user };
+      }
+      return { ...state, message: action.payload.message };
+       
+      case 'auth/user':
+
+      return {
+        ...state,
+        user:action.payload
+      }
+
     default:
       return state;
   }

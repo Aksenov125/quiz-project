@@ -1,3 +1,8 @@
-import type { User } from '../type';
+import type { User, UserWithoutPassword } from '../type';
 
-export type Action = { type: 'auth/registration'; payload: { message: string; user: User } };
+export type Action = 
+{ type: 'auth/registration'; payload: { message: string; user: UserWithoutPassword } }
+| { type: 'auth/login'; payload: { message: string; user: UserWithoutPassword } }
+| { type: 'auth/user', payload: {user: UserWithoutPassword}}
+
+
