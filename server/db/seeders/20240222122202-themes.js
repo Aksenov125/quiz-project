@@ -3,7 +3,7 @@ module.exports = {
   async up(queryInterface) {
     await queryInterface.bulkInsert('Themes', [
       {
-        name: 'Theme1',
+        name: 'Правда или Ложь',
         createdAt: new Date(),
         updatedAt: new Date(),
       },
