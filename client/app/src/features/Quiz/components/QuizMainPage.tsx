@@ -14,10 +14,16 @@ function QuizMainPage():JSX.Element {
     ).catch(console.log)
   },[])
   return (
-    <div className='container'>
+    <div className='container1'>
       {themes.map((theme) =>
-          <div> 
-          <div className='themeName' key={theme.id}>{theme.name}</div>
+          <div className='container'> 
+          <div className='themeName animated-button1' key={theme.id}>
+          <span/>
+          <span/>
+          <span/>
+          <span/>
+          {theme.name}
+          </div>
           {theme.Questions.map((question)=> <QuestionCard key={question.id} question={question}/>)}
           </div>
         )}
