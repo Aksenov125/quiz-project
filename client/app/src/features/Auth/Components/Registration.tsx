@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import * as api from '../api';
 import type { RootState } from '../../../store/store';
+import './auth.css';
 
 function Registration(): JSX.Element {
   const [name, setName] = useState('');
@@ -13,8 +14,7 @@ function Registration(): JSX.Element {
   const dispatch = useDispatch();
   const message = useSelector((store: RootState) => store.authState.message);
 
-  const navigator = useNavigate()
-
+  const navigator = useNavigate();
 
   const registration = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
@@ -22,9 +22,9 @@ function Registration(): JSX.Element {
       api
         .registrationFetch({ name, email, password })
         .then((data) => {
-          dispatch({ type: 'auth/registration', payload: data })
-          navigator('/')
-      })
+          dispatch({ type: 'auth/registration', payload: data });
+          navigator('/');
+        })
         .catch(console.log);
     }
     setName('');

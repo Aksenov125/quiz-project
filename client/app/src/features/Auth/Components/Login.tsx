@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import * as api from '../api';
+import './auth.css';
 
 function Login(): JSX.Element {
   const [email, setEmail] = useState('');
@@ -9,7 +10,7 @@ function Login(): JSX.Element {
 
   const dispatch = useDispatch();
 
-  const navigator = useNavigate()
+  const navigator = useNavigate();
 
   const login = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
@@ -18,11 +19,10 @@ function Login(): JSX.Element {
       .then((data) => {
         if (data.message === 'confirm') {
           dispatch({ type: 'auth/login', payload: data });
-          navigator('/')
+          navigator('/');
         }
       })
       .catch(console.log);
-      
   };
   return (
     <div>

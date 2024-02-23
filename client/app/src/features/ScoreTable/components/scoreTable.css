@@ -3,6 +3,7 @@
   max-width: 800px;
   margin: auto;
   border-collapse: collapse;
+  /* background-color: rgb(65, 61, 61); */
 }
 
 .tableScore__title {
