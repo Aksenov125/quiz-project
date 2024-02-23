@@ -33,3 +33,10 @@ export const userfetch = async ():Promise<UserWithoutPassword> => {
   return data
   
 }
+
+export const logoutfetch = async ():Promise<{message:string}> => {
+  const res = await fetch('/api/auth/logout')
+  const data = await res.json()
+  return data
+  
+}

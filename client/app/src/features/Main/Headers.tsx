@@ -1,10 +1,25 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { NavLink, useNavigate } from 'react-router-dom';
 import type { RootState } from '../../store/store';
+import * as api from '../Auth/api'
 
 function Headers(): JSX.Element {
   const user = useSelector((store: RootState) => store.authState.user);
+  const navigation = useNavigate()
+
+  const dispatch = useDispatch()
+
+
+
+  const logoufunc = ():void=> {
+    api.logoutfetch().then(data => {
+      if(data.message === 'ok'){
+        dispatch({type:'auth/logout'})
+        navigation('/login')
+      }
+    }).catch(console.log)
+  }
 
   return (
     <ul className="menu-main">
@@ -18,7 +33,7 @@ function Headers(): JSX.Element {
         <NavLink to="">Hello</NavLink>
       </li>
       <li>
-        <NavLink to="/login">Logout</NavLink>
+        <NavLink onClick={logoufunc} to='/'>Logout</NavLink>
       </li>
       <li>
         <NavLink to="/registration">Rega</NavLink>

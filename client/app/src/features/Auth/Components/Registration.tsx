@@ -23,7 +23,7 @@ function Registration(): JSX.Element {
         .registrationFetch({ name, email, password })
         .then((data) => {
           dispatch({ type: 'auth/registration', payload: data })
-          // navigator('/')
+          navigator('/')
       })
         .catch(console.log);
     }

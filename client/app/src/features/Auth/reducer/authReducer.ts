@@ -30,6 +30,12 @@ const authReducer = (state: StateAuth = init, action: Action): StateAuth => {
         ...state,
         user: {...state.user, score: action.payload }
       }
+      case 'auth/logout':
+
+      return {
+        ...state,
+        user:null
+      }
 
     default:
       return state;
