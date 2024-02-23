@@ -24,6 +24,13 @@ const authReducer = (state: StateAuth = init, action: Action): StateAuth => {
         user:action.payload
       }
 
+      case 'score/user':
+
+      return {
+        ...state,
+        user: {...state.user, score: action.payload }
+      }
+
     default:
       return state;
   }

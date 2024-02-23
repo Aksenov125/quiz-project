@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import * as api from '../api';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../../store/store';
+import { useNavigate } from 'react-router-dom';
+import * as api from '../api';
+import type { RootState } from '../../../store/store';
 
 function Registration(): JSX.Element {
   const [name, setName] = useState('');
@@ -12,12 +13,18 @@ function Registration(): JSX.Element {
   const dispatch = useDispatch();
   const message = useSelector((store: RootState) => store.authState.message);
 
+  const navigator = useNavigate()
+
+
   const registration = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
     if (password === password2) {
       api
         .registrationFetch({ name, email, password })
-        .then((data) => dispatch({ type: 'auth/registration', payload: data }))
+        .then((data) => {
+          dispatch({ type: 'auth/registration', payload: data })
+          // navigator('/')
+      })
         .catch(console.log);
     }
     setName('');

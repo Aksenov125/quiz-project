@@ -11,7 +11,7 @@ function Headers(): JSX.Element {
   return (
     <ul className="menu-main">
      { user &&  <li>
-        <NavLink to="">{user.name}</NavLink>
+        <NavLink to="">{`${user.name}: ${user.score}`}</NavLink>
       </li>}
       <li>
         <NavLink to="">Hello</NavLink>
