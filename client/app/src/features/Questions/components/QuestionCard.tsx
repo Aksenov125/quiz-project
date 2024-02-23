@@ -8,6 +8,9 @@ import useButtonDisable from '../ButtonDisable';
 import { useDispatch } from 'react-redux';
 
 const modalStyles = {
+  overlay: {
+    backgroundColor: '#1f1f1fbb'
+  },
   content: {
     top: '50%',
     left: '50%',
@@ -15,8 +18,8 @@ const modalStyles = {
     bottom: 'auto',
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
-    borderRadius: '1rem'
-  },
+    borderRadius: '1rem',
+  }
 };
 
 Modal.setAppElement('#root')
