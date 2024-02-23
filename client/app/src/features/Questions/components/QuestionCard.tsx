@@ -43,7 +43,8 @@ function QuestionCard({ question }: { question: Question }): JSX.Element {
       .then(data => {
         dispatch({type: 'score/user', payload: data.score})
         if (data.message === 'confirm') {
-          data.result ? (setResult(`Правильно, +${question.price}`), setResultButton(false)) : setResult(`Неправильно, -${question.price}`)
+          data.result ? setResult(`Правильно, +${question.price}`) : setResult(`Неправильно, -${question.price}, правильный ответ: ${question.answer}`);
+          setResultButton(false)
         } else {
           setResult(data.message)
         }
@@ -72,8 +73,8 @@ function QuestionCard({ question }: { question: Question }): JSX.Element {
         <form className='modal-window-form' onSubmit={(e)=>checkAnswer(e)}>
           <input className='modal-window-form-input' onChange={(e) => setAnswerValue(e.target.value)} value={answerValue} placeholder="Введите ответ" required />
           <button className='modal-window-form-button' disabled={!resultButton} type='submit'>Отправить ответ</button>
-          <p className='modal-window-result'>{result}</p>
         </form>
+        <p className='modal-window-result'>{result}</p>
       </Modal>
     </>
   )

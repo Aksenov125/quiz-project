@@ -35,7 +35,7 @@ function Login(): JSX.Element {
           onChange={(e) => setEmail(e.target.value)}
         />
         <input
-          type="text"
+          type="password"
           value={password}
           placeholder="password"
           required

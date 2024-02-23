@@ -16,6 +16,7 @@ function Headers(): JSX.Element {
     api.logoutfetch().then(data => {
       if(data.message === 'ok'){
         dispatch({type:'auth/logout'})
+        localStorage.clear();
         navigation('/login')
       }
     }).catch(console.log)
@@ -24,23 +25,23 @@ function Headers(): JSX.Element {
   return (
     <ul className="menu-main">
      { user &&  <li>
-        <NavLink to="">{`${user.name}: ${user.score}`}</NavLink>
+        <NavLink to="" className='nav-user-data'>{`${user.name}: ${user.score}`}</NavLink>
       </li>}
       <li>
         <NavLink to="/score">ScoreTable</NavLink>
       </li>
+      {user ? 
       <li>
-        <NavLink to="">Hello</NavLink>
+        <NavLink onClick={logoufunc} to='/'>Выйти</NavLink>
+      </li> :
+      <>
+      <li>
+        <NavLink to="/registration">Создать аккаунт</NavLink>
       </li>
       <li>
-        <NavLink onClick={logoufunc} to='/'>Logout</NavLink>
+        <NavLink to="/login">Войти</NavLink>
       </li>
-      <li>
-        <NavLink to="/registration">Rega</NavLink>
-      </li>
-      <li>
-        <NavLink to="/login">Loga</NavLink>
-      </li>
+      </>}
     </ul>
   );
 }

@@ -6,10 +6,10 @@ const { User } = require('../../db/models');
 const cookiesConfig = require('../../config/cookiesConfig');
 
 router.get('/', async (req, res) => {
-  if(res.locals.user){
+  if (res.locals.user) {
     res.status(200).json(res.locals.user);
-  }else{
-    res.status(400).json(null)
+  } else {
+    res.status(400).json(null);
   }
 });
 
@@ -97,11 +97,9 @@ router.post('/login', async (req, res) => {
   }
 });
 
-
-
-router.get('/logout', (req, res ) => {
-  res.clearCookie(cookiesConfig.access).clearCookie(cookiesConfig.refresh)
-  res.status(200).json({message: 'ok'})
+router.get('/logout', (req, res) => {
+  res.clearCookie(cookiesConfig.access).clearCookie(cookiesConfig.refresh);
+  res.status(200).json({ message: 'ok' });
 });
 
 module.exports = router;
