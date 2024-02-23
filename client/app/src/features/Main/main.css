@@ -1,11 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Ubuntu+Condensed');
 .menu-main {
   list-style: none;
-  margin: 40px 0 5px;
   padding: 5px 0 5px;
   text-align: center;
-  background: white;
+
 }
+
+
+
+
 .menu-main li {display: inline-block;}
 .menu-main li:after {
   content: "|";
@@ -50,8 +53,16 @@
   padding: 25px 0 20px; 
   margin: 0 30px;
 }
+
 }
 
 .nav-user-data {
   cursor: default;
+
+
+.menu-main {
+padding-top: 0px;
+
+}
+
 }
