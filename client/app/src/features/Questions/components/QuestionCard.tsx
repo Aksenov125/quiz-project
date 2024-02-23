@@ -62,7 +62,7 @@ function QuestionCard({ question }: { question: Question }): JSX.Element {
 
   return (
     <>
-      <button type="button" disabled={buttonIsDisabled} onClick={openModal}>{question.price}</button>
+      <button type="button" className="glow-on-hover" disabled={buttonIsDisabled} onClick={openModal}>{question.price}</button>
       <Modal isOpen={modalIsOpen} onRequestClose={closeModal} style={modalStyles} contentLabel="Question Modal">
         <button className='modal-window-close-button' type='submit' onClick={closeModal}><p className='hidden-text'>х</p></button>
         <div className='modal-window-image-container'>

@@ -14,12 +14,12 @@ function QuizMainPage():JSX.Element {
     ).catch(console.log)
   },[])
   return (
-    <div>
+    <div className='container'>
       {themes.map((theme) =>
-          <> 
-          <p key={theme.id}>{theme.name}</p>
+          <div> 
+          <div className='themeName' key={theme.id}>{theme.name}</div>
           {theme.Questions.map((question)=> <QuestionCard key={question.id} question={question}/>)}
-          </>
+          </div>
         )}
     </div>
   )
