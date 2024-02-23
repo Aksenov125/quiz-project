@@ -5,6 +5,6 @@ const scoreApiRouter = require("./api/scoreApi.route");
 
 router.use("/api/auth", authApiRouter);
 router.use("/api", themesApiRouter);
-router.use("/api", scoreApiRouter);
+router.use("/api/score", scoreApiRouter);
 
 module.exports = router;
