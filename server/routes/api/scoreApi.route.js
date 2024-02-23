@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const { User } = require("../../db/models");
 
-router.get("/score", async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     const users = await User.findAll();
     users.sort((a, b) => b.score - a.score);

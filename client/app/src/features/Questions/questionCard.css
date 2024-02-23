@@ -72,6 +72,9 @@
     text-align: center;
     background-color: rgb(198, 198, 198);
     border-radius: 5px;
+}
 
 .glow-on-hover:disabled {
     font-size: 0.1px;
+   color: #1f1f1fbb
+}
