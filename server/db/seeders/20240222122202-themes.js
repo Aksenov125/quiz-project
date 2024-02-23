@@ -23,14 +23,15 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
-        name: 'Theme5',
+        name: "Принадлежности",
         createdAt: new Date(),
         updatedAt: new Date(),
       },
     ], {});
+
   },
 
   async down(queryInterface) {
-    await queryInterface.bulkDelete('Themes', null, {});
+    await queryInterface.bulkDelete("Themes", null, {});
   },
 };

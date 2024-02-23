@@ -3,6 +3,7 @@ import TableRow from './TableRow';
 import scoreFetch from '../api';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../../store/store';
+import './scoreTable.css';
 
 function ScoreTable(): React.JSX.Element {
   const users = useSelector((store: RootState) => store.scoreState.users);
@@ -20,8 +21,8 @@ function ScoreTable(): React.JSX.Element {
       <table className="tableScore">
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Score</th>
+            <th className="tableScore-name">Name</th>
+            <th className="tableScore-score">Score</th>
           </tr>
         </thead>
         <tbody>
