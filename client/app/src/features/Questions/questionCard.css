@@ -5,6 +5,7 @@
     flex-direction: column;
     justify-content: space-between;
     border-radius: 5rem;
+
 }
 
 .ReactModal__Overlay {
@@ -41,7 +42,36 @@
     transition: 0.3s;
 }
 
+
+.modal-window-image-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-window-image {
+    max-width: 500px;
+    max-height: 300px;
+}
+
+.modal-window-form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.modal-window-question-text {
+    text-align: center;
+}
+
+.modal-window-form-input {
+    width: 300px;
+}
+
+.modal-window-result {
+    text-align: center;
+    background-color: rgb(198, 198, 198);
+    border-radius: 5px;
+
 .glow-on-hover:disabled {
     font-size: 0.1px;
-
-}

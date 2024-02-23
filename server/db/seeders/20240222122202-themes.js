@@ -8,17 +8,17 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
-        name: 'Theme2',
+        name: 'Мемы',
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
-        name: 'Theme3',
+        name: 'Известные личности',
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
-        name: 'Theme4',
+        name: 'Теории заговора',
         createdAt: new Date(),
         updatedAt: new Date(),
       },
