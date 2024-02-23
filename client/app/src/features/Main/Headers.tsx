@@ -1,26 +1,26 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import type { RootState} from '../../store/store';
+import type { RootState } from '../../store/store';
 
 function Headers(): JSX.Element {
-
-  const user = useSelector((store: RootState) => store.authState.user)
-
+  const user = useSelector((store: RootState) => store.authState.user);
 
   return (
     <ul className="menu-main">
-     { user &&  <li>
-        <NavLink to="">{user.name}</NavLink>
-      </li>}
+      {user && (
+        <li>
+          <NavLink to="">{user.name}</NavLink>
+        </li>
+      )}
       <li>
-        <NavLink to="">Hello</NavLink>
+        <NavLink to="/score">ScoreTable</NavLink>
       </li>
       <li>
         <NavLink to="">Hello</NavLink>
       </li>
       <li>
-        <NavLink to="">Hello</NavLink>
+        <NavLink to="/login">Logout</NavLink>
       </li>
       <li>
         <NavLink to="/registration">Rega</NavLink>
