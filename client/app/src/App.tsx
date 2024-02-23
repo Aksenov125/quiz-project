@@ -6,27 +6,34 @@ import Main from './features/Main/Main';
 import QuizMainPage from './features/Quiz/components/QuizMainPage';
 import Registration from './features/Auth/Components/Registration';
 import Login from './features/Auth/Components/Login';
-import * as api from "./features/Auth/api"
+import * as api from './features/Auth/api';
 import IncorrectPage from './features/Incorrect/IncorrectPage';
+
+import ScoreTable from './features/ScoreTable/components/ScoreTable';
+
 import { RootState } from './store/store';
 
 function App(): JSX.Element {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    api.userfetch().then(data => dispatch({type: 'auth/user', payload:data})).catch(console.log)
-  },[])
+    api
+      .userfetch()
+      .then((data) => dispatch({ type: 'auth/user', payload: data }))
+      .catch(console.log);
+  }, []);
 
   return (
     <Routes>
-    <Route path='/' element={<Main />}>
-    <Route index element={<QuizMainPage  />}/>
-    <Route path="/registration" element={<Registration />} />
-    <Route path="/login" element={<Login />} />
-    <Route path='*' element={<IncorrectPage />}/>
-    </Route>
+      <Route path="/" element={<Main />}>
+        <Route index element={<QuizMainPage />} />
+        <Route path="/score" element={<ScoreTable />} />
+        <Route path="/registration" element={<Registration />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="*" element={<IncorrectPage />} />
+      </Route>
     </Routes>
-  )
+  );
 }
 
 export default App;
