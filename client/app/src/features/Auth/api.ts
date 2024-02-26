@@ -3,8 +3,8 @@ import type { User, UserWithoutId, UserWithoutIdAndName, UserWithoutPassword } f
 export const registrationFetch = async (
   obj: UserWithoutId,
 ): Promise<{ message: string; user: User }> => {
-  const res = await fetch('/api/auth/registration', {
-    method: 'POST',
+  const res = await fetch('/auth/registration', {
+    method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
     },
@@ -15,7 +15,7 @@ export const registrationFetch = async (
 };
 
 export const loginFetch = async (obj: UserWithoutIdAndName): Promise<{ user: User }> => {
-  const res = await fetch('/api/auth/login', {
+  const res = await fetch('/auth/login', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -28,14 +28,14 @@ export const loginFetch = async (obj: UserWithoutIdAndName): Promise<{ user: Use
 
 
 export const userfetch = async ():Promise<UserWithoutPassword> => {
-  const res = await fetch('/api/auth')
+  const res = await fetch('/auth')
   const data = await res.json()
   return data
   
 }
 
 export const logoutfetch = async ():Promise<{message:string}> => {
-  const res = await fetch('/api/auth/logout')
+  const res = await fetch('/auth/logout')
   const data = await res.json()
   return data
   

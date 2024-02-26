@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
   if (res.locals.user) {
     res.status(200).json(res.locals.user);
   } else {
-    res.status(400).json(null);
+    res.status(200).json(null);
   }
 });
 

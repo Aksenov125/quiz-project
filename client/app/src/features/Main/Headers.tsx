@@ -5,7 +5,7 @@ import type { RootState } from '../../store/store';
 import * as api from '../Auth/api'
 
 function Headers(): JSX.Element {
-  const user = useSelector((store: RootState) => store.authState.user);
+  const {user} = useSelector((store: RootState) => store.authState);
   const navigation = useNavigate()
 
   const dispatch = useDispatch()
@@ -16,8 +16,8 @@ function Headers(): JSX.Element {
     api.logoutfetch().then(data => {
       if(data.message === 'ok'){
         dispatch({type:'auth/logout'})
-        localStorage.clear();
-        navigation('/login')
+        LocalStorageclear()
+        navigation('/registration')
       }
     }).catch(console.log)
   }
@@ -30,7 +30,7 @@ function Headers(): JSX.Element {
       <li>
         <NavLink to="/score">ScoreTable</NavLink>
       </li>
-      {user ? 
+      {!user ? 
       <li>
         <NavLink onClick={logoufunc} to='/'>Выйти</NavLink>
       </li> :

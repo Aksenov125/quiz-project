@@ -1,7 +1,7 @@
-import { User } from '../Auth/type';
+import type { User } from '../Auth/type';
 
-async function scoreFetch(): Promise<User[]> {
-  const res = await fetch('/api/score');
+async function scoreFetch(): Promise<User> {
+  const res = await fetch('api/score/');
   const data = await res.json();
   return data.users;
 }

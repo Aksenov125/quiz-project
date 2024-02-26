@@ -7,7 +7,6 @@ import QuestionCard from '../../Questions/components/QuestionCard.tsx'
 
 function QuizMainPage():JSX.Element {
   const dispatch = useDispatch()
-  const [statebtn, setStatebtn] = useState(false)
   const themes = useSelector((store:RootState) => store.initialThemeState.themes)
   useEffect(() => {
     api.initFetchThemeAndQuestion().then(data => dispatch({type:'Theme/Init', payload:data})
@@ -16,8 +15,8 @@ function QuizMainPage():JSX.Element {
   return (
     <div className='container1'>
       {themes.map((theme) =>
-          <div className='container'> 
-          <div className='themeName animated-button1' key={theme.id}>
+          <div className='container'key={theme.id}> 
+          <div className='themeName animated-button1' >
           <span/>
           <span/>
           <span/>

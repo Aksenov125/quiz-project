@@ -1,8 +1,8 @@
 /* eslint-disable import/prefer-default-export */
 
 
-export const checkAnswerFetch = async (obj:{answer:string, id:number}):Promise<{message:string, result:boolean, score:number}>=>{
-    const res = await fetch('/api/question', {
+export const checkAnswerFetch = async (obj:{answer:string, id:string}):Promise<{message:number, result:boolean, score:number}>=>{
+    const res = await fetch('/api/questions', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

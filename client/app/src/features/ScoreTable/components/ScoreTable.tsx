@@ -1,17 +1,17 @@
 import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import TableRow from './TableRow';
 import scoreFetch from '../api';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../../store/store';
+import type { RootState } from '../../../store/store';
 import './scoreTable.css';
 
-function ScoreTable(): React.JSX.Element {
+function ScoreTable() {
   const users = useSelector((store: RootState) => store.scoreState.users);
   const dispatch = useDispatch();
 
   useEffect(() => {
     scoreFetch()
-      .then((data) => dispatch({ type: 'score/init', payload: data }))
+      .then((data) => dispatch({ type: 'score/initt', payload: data }))
       .catch(console.log);
   }, []);
 
@@ -26,8 +26,8 @@ function ScoreTable(): React.JSX.Element {
           </tr>
         </thead>
         <tbody>
-          {users.map((user) => (
-            <TableRow key={user.id} user={user} />
+          {users.map((users) => (
+            <TableRow key={users.id} user={users.name} />
           ))}
         </tbody>
       </table>

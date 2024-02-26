@@ -17,7 +17,7 @@ function Login(): JSX.Element {
     api
       .loginFetch({ email, password })
       .then((data) => {
-        if (data.message === 'confirm') {
+        if (data.message === 'success') {
           dispatch({ type: 'auth/login', payload: data });
           navigator('/');
         }
@@ -41,7 +41,7 @@ function Login(): JSX.Element {
           required
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="submit">login</button>
+        <button type="sumbit">login</button>
       </form>
       <div className="errLogin_message" />
     </div>

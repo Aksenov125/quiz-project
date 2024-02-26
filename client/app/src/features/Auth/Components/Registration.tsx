@@ -9,10 +9,11 @@ function Registration(): JSX.Element {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [password2, setPassword2] = useState('');
+  // const [password2, setPassword2] = useState('');
 
   const dispatch = useDispatch();
   const message = useSelector((store: RootState) => store.authState.message);
+  
 
   const navigator = useNavigate();
 
@@ -20,17 +21,15 @@ function Registration(): JSX.Element {
     e.preventDefault();
     if (password === password2) {
       api
-        .registrationFetch({ name, email, password })
+        .registrationFetch( name, email, password )
         .then((data) => {
           dispatch({ type: 'auth/registration', payload: data });
-          navigator('/');
+          if (data.message === 'success') {
+            navigator('/');
+          }
         })
         .catch(console.log);
     }
-    setName('');
-    setEmail('');
-    setPassword('');
-    setPassword2('');
   };
 
   return (
@@ -38,28 +37,28 @@ function Registration(): JSX.Element {
       <form className="auth__registrationForm" onSubmit={registration}>
         <input
           type="text"
-          value={name}
+          value={email}
           placeholder="name"
           required
           onChange={(e) => setName(e.target.value)}
         />
         <input
           type="email"
-          value={email}
+          value={name}
           placeholder="email"
           required
           onChange={(e) => setEmail(e.target.value)}
         />
         <input
           type="password"
-          value={password}
+          value={password2}
           placeholder="password"
           required
           onChange={(e) => setPassword(e.target.value)}
         />
         <input
           type="password"
-          value={password2}
+          value={password}
           placeholder="erPassword"
           required
           onChange={(e) => setPassword2(e.target.value)}

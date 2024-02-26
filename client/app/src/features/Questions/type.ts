@@ -1,6 +1,6 @@
 export type Question = {
     id:number,
-    name:string,
+    name:number,
     answer:string,
     img:string,
     price:number,
